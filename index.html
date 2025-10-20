@@ -20,6 +20,16 @@
 </head>
 
   <body>
+        <script type="text/javascript">
+      // 检查是否有从404页面重定向过来的路径
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== window.location.pathname) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
     <div id="root"></div>
   </body>
 </html>
